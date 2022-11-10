@@ -1,18 +1,10 @@
 import React from 'react'
+import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 const Register = () => {
 
   return (
-    <div>
-      <form>
-        <label>
-          <input></input>
-          <input></input>
-          <input></input>
-        </label>
-        <button>Register</button>
-        </form>
-    </div>
+    <RegisterForm />
   )
 }
 
