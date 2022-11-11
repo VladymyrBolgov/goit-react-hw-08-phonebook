@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-//import { useNavigate } from 'react-router-dom';
-import { register } from 'redux/Auth/operations';
 import userAuthOperations from 'redux/Auth/operations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  //const navigate = useNavigate();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
