@@ -2,6 +2,17 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import userAuthOperations from 'redux/Auth/operations';
 
+const styles = {
+  form: {
+    width: 320,
+  },
+  label: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginBottom: 15,
+  },
+};
+
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('')
@@ -31,8 +42,8 @@ export const RegisterForm = () => {
   
   return (
     <div>
-      <form>
-        <label>
+      <form style={styles.form}>
+        <label style={styles.label}>
           Username
           <input
             type="text"
@@ -43,7 +54,7 @@ export const RegisterForm = () => {
             onChange={handleSubmit}
             required/>
         </label>
-        <label>
+        <label style={styles.label}>
           Email
           <input
             type="email"
@@ -54,7 +65,7 @@ export const RegisterForm = () => {
             required
             />
         </label>
-        <label>
+        <label style={styles.label}>
           Password
           <input
             type="password"
