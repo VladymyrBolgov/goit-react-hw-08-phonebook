@@ -1,22 +1,10 @@
 import React from 'react'
+import {LoginForm} from 'components/LoginForm/LoginForm'
 
 const Login = () => {
 
   return (
-    <div>
-    <form>
-      
-      <label>
-        Email
-        <input type="email" name="email"/>
-      </label>
-      <label>
-        Password
-        <input type="password" name="password"/>
-      </label>
-      <button>Login</button>
-      </form>
-  </div>
+<LoginForm />
   )
 }
 
