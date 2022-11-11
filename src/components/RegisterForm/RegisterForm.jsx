@@ -1,59 +1,36 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { register } from 'redux/Auth/operations';
 import userAuthOperations from 'redux/Auth/operations';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const handleChange = ({ target: { name, value } }) => {
+    switch (name) {
+      case 'name':
+        return setName(value);
+      case 'email':
+        return setEmail(value);
+      case 'password':
+        return setPassword(value);
+      default:
+        return;
+    }
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(register({
-      name: form.elements.name.value,
-      email: form.elements.email.value,
-      password: form.elements.password.value,
-    }))
-    form.reset();
-
-    const { name, value } = e.currentTarget
-        
-        console.log('event.currentTarget.name =>', e.currentTarget.name )
-        switch (name) {
-            case 'name':
-                setName(value);
-                break;
-            
-            case 'email':
-                setEmail(value);
-                break;
-            
-            case 'password':
-                setPassword(value);
-                break;
-            
-            default:
-                return;
-        }
-  }
-  function handleInputSubmit  (event) {
-    event.preventDefault();
-    console.log({ name, email, password });
-    dispatch(userAuthOperations.userRegistration({ name, email, password }));
-    reset();
-    navigate('/contacts');
-}
-
-const reset = () => {
+    dispatch(userAuthOperations.register({ name, email, password }));
     setName('');
     setEmail('');
     setPassword('');
-  }
+  };
   
   return (
     <div>
@@ -90,7 +67,7 @@ const reset = () => {
             required
             />
         </label>
-        <button type="submit" onClick={handleInputSubmit}>Register</button>
+        <button type="submit" onClick={handleChange}>Register</button>
         </form>
     </div>
   )
