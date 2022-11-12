@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import userAuthOperations from 'redux/Auth/operations';
 
 const styles = {
@@ -16,7 +15,6 @@ const styles = {
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -37,7 +35,6 @@ export const LoginForm = () => {
         e.preventDefault();
         dispatch(userAuthOperations.logIn({ email, password }));
           reset();
-          navigate('/contacts')
     };
     
     const reset = () => {
