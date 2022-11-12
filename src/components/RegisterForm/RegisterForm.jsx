@@ -53,7 +53,7 @@ export const RegisterForm = () => {
   
   return (
     <div>
-      <form  style={styles.form}>
+      <form  onSubmit={handleSubmit} style={styles.form}>
         <label style={styles.label}>
           Username
           <input
@@ -86,7 +86,7 @@ export const RegisterForm = () => {
             required
             />
         </label>
-        <button type="submit" onClick={handleSubmit}>Register</button>
+        <button type="submit" >Register</button>
         </form>
     </div>
   )

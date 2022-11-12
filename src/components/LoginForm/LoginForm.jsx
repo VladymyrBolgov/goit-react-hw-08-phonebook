@@ -44,7 +44,7 @@ export const LoginForm = () => {
         
   return (
     <div>
-      <form style={styles.form}>
+      <form onSubmit={handleSubmit} style={styles.form}>
         <label style={styles.label}>
           Email
             <input
@@ -66,9 +66,8 @@ export const LoginForm = () => {
                 />
         </label>
             <button
-                type="submit"
-                  onClick={handleSubmit}>
-                  Register
+                type="submit">
+                  Login
               </button>
         </form>
     </div>
