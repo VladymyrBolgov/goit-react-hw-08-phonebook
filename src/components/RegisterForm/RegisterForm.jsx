@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import userAuthOperations from 'redux/Auth/operations';
 
 const styles = {
@@ -15,6 +16,7 @@ const styles = {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -22,19 +24,28 @@ export const RegisterForm = () => {
   const handleChange = ({ target: { name, value } }) => {
     switch (name) {
       case 'name':
-        return setName(value);
+          setName(value);
+          break;
       case 'email':
-        return setEmail(value);
+          setEmail(value);
+          break;
       case 'password':
-        return setPassword(value);
+          setPassword(value);
+          break;
       default:
-        return;
+          return;
     }
   };
 
   const handleSubmit = e => {
     e.preventDefault();
+    console.log({ name, email, password });
     dispatch(userAuthOperations.register({ name, email, password }));
+    reset();
+    navigate('/contacts')
+  }
+  
+  const reset = () => {
     setName('');
     setEmail('');
     setPassword('');
@@ -42,7 +53,7 @@ export const RegisterForm = () => {
   
   return (
     <div>
-      <form style={styles.form}>
+      <form  style={styles.form}>
         <label style={styles.label}>
           Username
           <input
@@ -51,7 +62,7 @@ export const RegisterForm = () => {
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
             value={name}
-            onChange={handleSubmit}
+            onChange={handleChange}
             required/>
         </label>
         <label style={styles.label}>
@@ -61,7 +72,7 @@ export const RegisterForm = () => {
             name="email" 
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             value={email}
-            onChange={handleSubmit}
+            onChange={handleChange}
             required
             />
         </label>
@@ -71,11 +82,11 @@ export const RegisterForm = () => {
             type="password"
             name="password" 
             value={password}
-            onChange={handleSubmit}
+            onChange={handleChange}
             required
             />
         </label>
-        <button type="submit" onClick={handleChange}>Register</button>
+        <button type="submit" onClick={handleSubmit}>Register</button>
         </form>
     </div>
   )

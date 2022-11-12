@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import userAuthOperations from 'redux/Auth/operations';
 
 const styles = {
@@ -15,27 +16,35 @@ const styles = {
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
-          case 'email':
-            return setEmail(value);
-          case 'password':
-            return setPassword(value);
-          default:
-            return;
+            case 'email':
+                setEmail(value);
+                break;
+            case 'password':
+                setPassword(value);
+                break;
+            default:
+                return;
         }
       };
 
       const handleSubmit = e => {
         e.preventDefault();
         dispatch(userAuthOperations.logIn({ email, password }));
+          reset();
+          navigate('/contacts')
+    };
+    
+    const reset = () => {
         setEmail('');
         setPassword('');
-      };
-    
+    };
+        
   return (
     <div>
       <form style={styles.form}>
@@ -61,7 +70,9 @@ export const LoginForm = () => {
         </label>
             <button
                 type="submit"
-                onClick={handleSubmit}>Register</button>
+                  onClick={handleSubmit}>
+                  Register
+              </button>
         </form>
     </div>
   )
