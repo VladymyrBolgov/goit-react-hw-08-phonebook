@@ -86,7 +86,7 @@ export const RegisterForm = () => {
             required
             />
         </label>
-        <button onSubmit={handleSubmit} type="submit" >Register</button>
+        <button type="submit" >Register</button>
         </form>
     </div>
   )
