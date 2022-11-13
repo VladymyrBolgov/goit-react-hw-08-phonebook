@@ -25,29 +25,29 @@ const App = () => {
  <b>Refreshing user...</b>
   ) : (
     <Routes>
-    <Route path="/" element={<SharedLayout />}>
-      <Route index element={<Home />} />
-      <Route
-        path="/register"
-        element={
-          <RestrictedRoute redirectTo="/contacts" component={<Register />} />
-        }
-      />
-      <Route
-        path="/login"
-        element={
-          <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />
-        }
-      />
-      <Route
-        path="/contacts"
-        element={
-          <PrivateRoute redirectTo="/login" component={<Contacts />} />
-        }
-      />
-    </Route>
-  </Routes>
-);
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<Register />} />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />
+          }
+        />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<Contacts />} />
+          }
+        />
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
