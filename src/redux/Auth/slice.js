@@ -27,6 +27,7 @@ const authSlice = createSlice({
       state.token = null;
       state.isLoggedIn = false;
     },
+
     [refreshUser.pending](state) {
       state.isRefreshing = true;
     },
@@ -40,5 +41,6 @@ const authSlice = createSlice({
     },
   },
 });
+
 
 export const authReducer = authSlice.reducer;
