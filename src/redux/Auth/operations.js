@@ -42,7 +42,9 @@ export const logIn = createAsyncThunk(
   }
 );
 
-export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+export const logOut = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
   try {
     await axios.post('/users/logout');
     // После успешного выхода удалите токен из HTTP-заголовка.
