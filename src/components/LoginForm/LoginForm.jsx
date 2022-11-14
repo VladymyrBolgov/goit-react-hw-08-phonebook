@@ -5,11 +5,12 @@ import css from './LoginForm.module.css'
 
 
 export const LoginForm = () => {
-    const dispatch = useDispatch();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-    const handleChange = ({ target: { name, value } }) => {
+const handleChange = ({ target: { name, value } }) => {
         switch (name) {
             case 'email':
                 setEmail(value);
@@ -25,11 +26,7 @@ export const LoginForm = () => {
       const handleSubmit = e => {
         e.preventDefault();
 
-        dispatch(
-          userAuthOperations.logIn({
-            email,
-            password
-          }));
+        dispatch(userAuthOperations.logIn({email, password}));
           reset();
     };
     
