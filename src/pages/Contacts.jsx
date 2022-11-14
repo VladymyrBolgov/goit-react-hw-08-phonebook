@@ -10,23 +10,17 @@ import { fetchContacts } from 'redux/operations';
 const Contacts = () => {
   const dispatch = useDispatch();
 
- useEffect(() => {
+  useEffect(() => {
     dispatch(fetchContacts());
   }, [dispatch]);
   
-    return (
-      <>
-          <section >
-            <Container >
-              <h1>Phonebook</h1>
-              <ContactForm />
-              <h2>Contacts</h2>
-              <Filter />
-              <ContactList />
-            </Container>
-            </section>
-      </>
-    );
-  }
+  return (
+    <>
+      <ContactForm />
+      <Filter />
+      <ContactList />
+    </>
+  );
+};
 
 export default Contacts;
