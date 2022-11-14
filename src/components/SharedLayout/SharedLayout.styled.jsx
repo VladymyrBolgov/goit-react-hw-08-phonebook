@@ -11,7 +11,7 @@ export const Header = styled.header`
 export const Navigation = styled.nav`
   display: flex;
   gap: 40px;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 export const Link = styled(NavLink)`

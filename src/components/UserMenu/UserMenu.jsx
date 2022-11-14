@@ -1,20 +1,29 @@
-import { useAuth } from 'hooks'
-import React from 'react'
-import { useDispatch } from 'react-redux'
-import {userAuthOperations} from 'redux/Auth/operations'
+import { useAuth } from 'hooks';
+import { useDispatch } from 'react-redux';
+import { logOut } from 'redux/Auth/operations';
+import { Button } from '@mui/material';
+import { HeaderBox, UserTitle } from './UserMenu.styled';
 
-export const UserMenu = () => {
+
+ const UserMenu = () => {
   const dispatch = useDispatch();
-  const { user } = useAuth();
+  const { email } = useAuth();
  
-  const logOut = () => {
-    dispatch(userAuthOperations.logOut())
+  return (
+    <>
+      <h1>Phonebook</h1> 
+      <HeaderBox>
+        <UserTitle>{email}</UserTitle>
+        <Button variannt="outlined" onClick={() => dispatch(logOut())}>
+          Logout
+        </Button>
+      </HeaderBox>
+    </>
+  )
+  
   }
 
-  return (
-    <div>
-          <p>Welcome, {user.name}</p>
-          <button type='button' onClick={logOut}>Logout</button>
-    </div>
-  )
-}
+
+
+
+export default UserMenu;
