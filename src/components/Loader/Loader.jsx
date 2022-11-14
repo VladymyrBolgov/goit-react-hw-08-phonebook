@@ -4,7 +4,7 @@ import { LoaderBox } from './Loader.styled';
 const Loader = () => {
     return (
         <LoaderBox>
-            <RotatingLines 
+            <RotatingLines
                 strokeColor="#b6d5d8"
                 strokeWidth="5"
                 animationDuration="0.75"
@@ -12,7 +12,7 @@ const Loader = () => {
                 visible={true}
             />
         </LoaderBox>
-    )
-}
+    );
+};
 
 export default Loader;

@@ -24,6 +24,8 @@ const ContactForm = () => {
   };
 
   return (
+    <>
+    <h2>Add contact:</h2>
     <Formik initialValues={initualValues} onSubmit={handleOnSubmit}>
       <FormBox>
         <FormLabel >Name</FormLabel>
@@ -46,7 +48,8 @@ const ContactForm = () => {
         />
         <FormButton type="submit">Add contact</FormButton>
       </FormBox>
-    </Formik>
+      </Formik>
+      </>
   );
 };
 
