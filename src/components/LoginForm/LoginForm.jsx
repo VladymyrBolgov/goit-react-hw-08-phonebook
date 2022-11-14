@@ -1,17 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import userAuthOperations from 'redux/Auth/operations';
+import css from './LoginForm.module.css'
 
-const styles = {
-    form: {
-      width: 320,
-    },
-    label: {
-      display: 'flex',
-      flexDirection: 'column',
-      marginBottom: 15,
-    },
-  };
 
 export const LoginForm = () => {
     const dispatch = useDispatch();
@@ -33,7 +24,12 @@ export const LoginForm = () => {
 
       const handleSubmit = e => {
         e.preventDefault();
-        dispatch(userAuthOperations.logIn({ email, password }));
+
+        dispatch(
+          userAuthOperations.logIn({
+            email,
+            password
+          }));
           reset();
     };
     
@@ -44,8 +40,8 @@ export const LoginForm = () => {
         
   return (
     <div>
-      <form onSubmit={handleSubmit} style={styles.form}>
-        <label style={styles.label}>
+      <form onSubmit={handleSubmit} className={css.form}>
+        <label className={css.label}>
           Email
             <input
                 type="email"
@@ -55,7 +51,7 @@ export const LoginForm = () => {
                 required 
                 />
         </label>
-        <label style={styles.label}>
+        <label className={css.label}>
           Password
             <input
                 type="password"
