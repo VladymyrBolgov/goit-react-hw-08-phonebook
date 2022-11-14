@@ -2,17 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 //import { useNavigate } from 'react-router-dom';
 import userAuthOperations from 'redux/Auth/operations';
-
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import css from './RegisterForm.module.css'
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -53,8 +43,8 @@ export const RegisterForm = () => {
   
   return (
     <div>
-      <form  onSubmit={handleSubmit} style={styles.form}>
-        <label style={styles.label}>
+      <form  onSubmit={handleSubmit} className={css.form}>
+        <label className={css.label}>
           Username
           <input
             type="text"
@@ -65,7 +55,7 @@ export const RegisterForm = () => {
             onChange={handleChange}
             required/>
         </label>
-        <label style={styles.label}>
+        <label className={css.label}>
           Email
           <input
             type="email"
@@ -76,7 +66,7 @@ export const RegisterForm = () => {
             required
             />
         </label>
-        <label style={styles.label}>
+        <label className={css.label}>
           Password
           <input
             type="password"

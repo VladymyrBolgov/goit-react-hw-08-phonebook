@@ -28,9 +28,4 @@ const SharedLayout = () => {
 
 export default SharedLayout;
 
-              // <Navigation>
-                //    <Link to="/" end>Home</Link>  
-                 //   <Link to="/register">Register</Link>
-                 //   <Link to="/login">Log In</Link>
-                  //  <Link to="/contacts">Contacts</Link>
-               // </Navigation>
+          

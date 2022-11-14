@@ -27,6 +27,12 @@ const App = () => {
     <Routes>
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Home />} />
+          <Route
+          path="/contacts"
+          element={
+            <PrivateRoute redirectTo="/login" component={<Contacts />} />
+          }
+          />
         <Route
           path="/register"
           element={
@@ -38,12 +44,7 @@ const App = () => {
           element={
             <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />
           }
-        />
-        <Route
-          path="/contacts"
-          element={
-            <PrivateRoute redirectTo="/login" component={<Contacts />} />
-          }
+        
         />
       </Route>
     </Routes>

@@ -12,5 +12,10 @@ export const Link = styled(NavLink)`
   &.active {
     color: #e84a5f;
   }
-  `
-   
+  `;
+
+export const NavigationBox = styled.div`
+@media screen and (min-width: 768px) {
+  display: flex;
+}
+`   
