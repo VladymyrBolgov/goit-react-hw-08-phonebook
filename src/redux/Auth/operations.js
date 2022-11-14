@@ -77,3 +77,6 @@ export const refreshUser = createAsyncThunk(
   }
 );
 
+const userAuthOperations = { register, logIn, logOut, refreshUser };
+
+export default userAuthOperations;
