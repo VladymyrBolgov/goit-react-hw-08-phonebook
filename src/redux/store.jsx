@@ -11,14 +11,14 @@ export const store = configureStore({
     filter: filterReducer,
     auth: authReducer,
   },
-  middleware: (getDefaultMiddleware) => [
-    ...getDefaultMiddleware({
+  middleware: getDefaultMiddleware => 
+    getDefaultMiddleware({
         serializableCheck: {
             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
     }),
 
-  ],
+  
 });
 
 export const persistor = persistStore(store);
