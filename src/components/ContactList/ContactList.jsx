@@ -24,12 +24,12 @@ const ContactList = () => {
     <h2>Contacts</h2>
     <ContactListBox>
       {isLoading && <Loader />}
-      {contacts.map(({ id, name, phone }) => (
+      {contacts.map(({ id, name, number  }) => (
         <ContactListItem key={id}>
-          <ContactListText>Name: {name}</ContactListText>
-          <ContactListText>Number: {phone}</ContactListText>
+          <ContactListText> {name}</ContactListText>
+          <ContactListText>{ number }</ContactListText>
           <ContactListBtn
-            type="button"
+            variant="contained"
             onClick={() => {
               dispatch(deleteContact(id));
             }}

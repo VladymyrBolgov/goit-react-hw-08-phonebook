@@ -1,14 +1,17 @@
 import { FilterTitle, FilterInput } from './Filter.styled';
 import { setFilterValue } from 'redux/filterSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectFilterValue } from 'redux/selectors';
+import { selectFilterValue, selectContacts } from 'redux/selectors';
+
 
 const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilterValue);
+  const contacts = useSelector(selectContacts)
 
   const filterInputHandler = e => {
     const inputValue = e.target.value;
+
     dispatch(setFilterValue(inputValue));
   };
 
