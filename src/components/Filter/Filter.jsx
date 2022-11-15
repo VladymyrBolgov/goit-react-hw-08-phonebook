@@ -7,8 +7,7 @@ import { selectFilterValue, selectContacts } from 'redux/selectors';
 const Filter = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilterValue);
-  const contacts = useSelector(selectContacts)
-
+ 
   const filterInputHandler = e => {
     const inputValue = e.target.value;
 
