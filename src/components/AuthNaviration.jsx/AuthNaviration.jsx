@@ -2,8 +2,6 @@ import { useSelector } from 'react-redux';
 import { selectIsLoggedIn } from 'redux/Auth/selectors';
 import { Link, NavigationBox} from './AuthNavigation.styled';
  
-
-
 export const AuthNavigation = () => {
   const isLoggedIn = useSelector(selectIsLoggedIn)
   return (

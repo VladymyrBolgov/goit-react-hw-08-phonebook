@@ -13,7 +13,8 @@ const UserMenu = () => {
       <UserMenuTitle>Phonebook</UserMenuTitle>
       <HeaderBox>
         <UserTitle>{email}</UserTitle>
-        <Button variant="outlined" onClick={() => dispatch(logOut())}>
+        <Button variant="outlined" onClick={() =>
+          dispatch(logOut())}>
           Logout
         </Button>
       </HeaderBox>

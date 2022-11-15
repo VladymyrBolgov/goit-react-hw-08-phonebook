@@ -44,7 +44,6 @@ const App = () => {
           element={
             <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />
           }
-        
         />
       </Route>
     </Routes>

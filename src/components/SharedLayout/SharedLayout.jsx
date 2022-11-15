@@ -17,7 +17,7 @@ const SharedLayout = () => {
               <Navigation>
                {isLoggedIn ? <UserMenu /> : <AuthNavigation />}
               </Navigation>
-              </Header> 
+            </Header> 
               <Suspense fallback={<Loader />}>
                 <Outlet />
               </Suspense>
