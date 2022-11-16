@@ -2,7 +2,7 @@ import { useAuth } from 'hooks';
 import React from 'react';
 import { useEffect, lazy } from 'react';
 import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { refreshUser } from 'redux/Auth/operations';
 import { PrivateRoute } from 'components/Routes/PrivateRoute';
 import { RestrictedRoute } from 'components/Routes/RestrictedRoute';
@@ -45,7 +45,8 @@ const App = () => {
             <RestrictedRoute redirectTo="/contacts" component={<LogIn />} />
           }
         />
-      </Route>
+        </Route>
+        <Route path="*" element={<Navigate to="/" />}></Route>
     </Routes>
   );
 };

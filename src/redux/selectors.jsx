@@ -11,6 +11,7 @@ export const selectContactsByName = state => {
             firstContact.name.localeCompare(secondContact.name)
         );
     }
+    
     return [...contacts]
         .sort((firstContact, secondContact) =>
             firstContact.name.localeCompare(secondContact.name)

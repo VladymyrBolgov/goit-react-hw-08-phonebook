@@ -4,7 +4,6 @@ import { persistedReducer } from './contactsSlice';
 import { filterReducer } from "./filterSlice";
 import { persistStore, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist";
 
-
 export const store = configureStore({
   reducer: {
     contacts: persistedReducer,
@@ -17,8 +16,6 @@ export const store = configureStore({
             ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
         },
     }),
-
-  
 });
 
 export const persistor = persistStore(store);

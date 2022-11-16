@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux';
-//import { useNavigate } from 'react-router-dom';
 import userAuthOperations from 'redux/Auth/operations';
 import css from './RegisterForm.module.css'
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
- // const navigate = useNavigate();
   const [name, setName] = useState('')
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -32,7 +30,6 @@ export const RegisterForm = () => {
     console.log({ name, email, password });
     dispatch(userAuthOperations.register({ name, email, password }));
     reset();
-    //navigate('/contacts')
   }
   
   const reset = () => {
