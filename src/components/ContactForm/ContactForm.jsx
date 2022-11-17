@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik, Field } from 'formik';
-import {FormBox, FormLabel, FormInput, FormButton,} from './ContactForm.styled';
+import { FormBox, FormLabel, FormInput, FormButton,} from './ContactForm.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/operations';
 import { selectContacts } from 'redux/selectors';
@@ -25,6 +25,7 @@ const ContactForm = () => {
 
   return (
     <>
+     
     <h2>Add contact:</h2>
     <Formik initialValues={initualValues} onSubmit={handleOnSubmit}>
       <FormBox>
@@ -48,7 +49,8 @@ const ContactForm = () => {
         />
         <FormButton type="submit">Add contact</FormButton>
       </FormBox>
-      </Formik>
+        </Formik>
+      
       </>
   );
 };

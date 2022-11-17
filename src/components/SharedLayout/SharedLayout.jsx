@@ -12,16 +12,18 @@ const SharedLayout = () => {
   const { isLoggedIn } = useAuth();
   return (
     <>
+      
+      <Header>
         <Container>
-            <Header>
-              <Navigation>
-               {isLoggedIn ? <UserMenu /> : <AuthNavigation />}
-              </Navigation>
-            </Header> 
-              <Suspense fallback={<Loader />}>
-                <Outlet />
-              </Suspense>
-        </Container>   
+          <Navigation>
+            {isLoggedIn ? <UserMenu /> : <AuthNavigation />}
+          </Navigation>
+        </Container>
+      </Header> 
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
+        
     </>
   )
 }

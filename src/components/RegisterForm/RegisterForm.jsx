@@ -9,7 +9,9 @@ export const RegisterForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleChange = ({ target: { name, value } }) => {
+  const handleChange = (event) => {
+    const { name, value } = event.currentTarget
+    
     switch (name) {
       case 'name':
           setName(value);
