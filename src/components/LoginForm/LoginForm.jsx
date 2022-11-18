@@ -10,7 +10,7 @@ export const LoginForm = () => {
   const [password, setPassword] = useState('');
 
   const handleChange = (event) => {
-    const { name, value } = event.currentTarget
+    const { name, value } = event.currentTarget;
   
         switch (name) {
             case 'email':

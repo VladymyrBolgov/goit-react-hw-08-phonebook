@@ -10,7 +10,7 @@ export const RegisterForm = () => {
   const [password, setPassword] = useState('');
 
   const handleChange = (event) => {
-    const { name, value } = event.currentTarget
+    const { name, value } = event.currentTarget;
     
     switch (name) {
       case 'name':
@@ -29,6 +29,7 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    
     console.log({ name, email, password });
     dispatch(userAuthOperations.register({ name, email, password }));
     reset();
