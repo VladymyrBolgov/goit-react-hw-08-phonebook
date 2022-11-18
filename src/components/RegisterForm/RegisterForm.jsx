@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import userAuthOperations from 'redux/Auth/operations';
 import css from './RegisterForm.module.css'
 
+
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [name, setName] = useState('')
@@ -29,18 +30,13 @@ export const RegisterForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    
+    if (name === '' || email === '' || password === '') {
+      return alert('Все поля должны быть заполнены');
+    }
     console.log({ name, email, password });
     dispatch(userAuthOperations.register({ name, email, password }));
-    reset();
   }
-  
-  const reset = () => {
-    setName('');
-    setEmail('');
-    setPassword('');
-  };
-  
+
   return (
     <div>
       <form  onSubmit={handleSubmit} className={css.form}>
