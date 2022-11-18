@@ -26,15 +26,12 @@ export const LoginForm = () => {
 
       const handleSubmit = e => {
         e.preventDefault();
+        if (email === '' || password === '') {
+          return alert('Все поля должны быть заполнены');
+        }
         dispatch(userAuthOperations.logIn({email, password}));
-          reset();
     };
-    
-    const reset = () => {
-        setEmail('');
-        setPassword('');
-    };
-        
+       
   return (
     <div>
       <form onSubmit={handleSubmit} className={css.form}>
