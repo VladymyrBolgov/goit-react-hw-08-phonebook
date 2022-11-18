@@ -1,4 +1,4 @@
-import { Button } from '@mui/material';
+//import { Button } from '@mui/material';
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import userAuthOperations from 'redux/Auth/operations';
@@ -73,7 +73,7 @@ export const RegisterForm = () => {
             required
             />
         </label>
-        <Button  type="submit" variant="primary">Register</Button>
+        <button  type="submit" variant="primary">Register</button>
         </form>
     </div>
   )

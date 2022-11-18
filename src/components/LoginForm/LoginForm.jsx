@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 //import userAuthOperations from 'redux/Auth/operations';
 import css from './LoginForm.module.css'
 import { logIn } from 'redux/Auth/operations';
-import { Button } from '@mui/material';
+//import { Button } from '@mui/material';
 
 
 export const LoginForm = () => {
@@ -60,10 +60,10 @@ export const LoginForm = () => {
                 required     
                 />
         </label>
-            <Button variant="primary"
+            <button variant="primary"
                 type="submit">
                   Login
-            </Button>
+            </button>
         </form>
     </div>
   )
