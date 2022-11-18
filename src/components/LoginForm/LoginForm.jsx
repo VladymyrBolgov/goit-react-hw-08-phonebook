@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import {  useState } from 'react'
 import { useDispatch } from 'react-redux';
 import userAuthOperations from 'redux/Auth/operations';
 import css from './LoginForm.module.css'
@@ -8,6 +8,8 @@ export const LoginForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+
 
   const handleChange = (event) => {
     const { name, value } = event.currentTarget;
@@ -24,8 +26,8 @@ export const LoginForm = () => {
         }
       };
 
-      const handleSubmit = e => {
-        e.preventDefault();
+      const handleSubmit = (event) => {
+        event.preventDefault();
         if (email === '' || password === '') {
           return alert('Все поля должны быть заполнены');
         }
