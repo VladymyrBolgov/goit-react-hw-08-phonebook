@@ -1,7 +1,9 @@
 import {  useState } from 'react'
 import { useDispatch } from 'react-redux';
-import userAuthOperations from 'redux/Auth/operations';
+//import userAuthOperations from 'redux/Auth/operations';
 import css from './LoginForm.module.css'
+import { logIn } from 'redux/Auth/operations';
+import { Button } from '@mui/material';
 
 
 export const LoginForm = () => {
@@ -12,7 +14,7 @@ export const LoginForm = () => {
 
 
   const handleChange = (event) => {
-    const { name, value } = event.currentTarget;
+    const { name, value } = event.target;
   
         switch (name) {
             case 'email':
@@ -31,7 +33,8 @@ export const LoginForm = () => {
         if (email === '' || password === '') {
           return alert('Все поля должны быть заполнены');
         }
-        dispatch(userAuthOperations.logIn({email, password}));
+        //dispatch(userAuthOperations.logIn({ email, password }));
+        dispatch(logIn({ email, password }));
     };
        
   return (
@@ -57,10 +60,10 @@ export const LoginForm = () => {
                 required     
                 />
         </label>
-            <button
+            <Button variant="primary"
                 type="submit">
                   Login
-              </button>
+            </Button>
         </form>
     </div>
   )

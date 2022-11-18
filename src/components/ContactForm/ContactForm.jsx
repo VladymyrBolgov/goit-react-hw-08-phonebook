@@ -48,7 +48,7 @@ const ContactForm = () => {
         />
         <FormButton type="submit">Add contact</FormButton>
       </FormBox>
-        </Formik>
+    </Formik>
       
       </>
   );

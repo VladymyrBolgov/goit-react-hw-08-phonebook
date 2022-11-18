@@ -1,3 +1,4 @@
+import { Button } from '@mui/material';
 import { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import userAuthOperations from 'redux/Auth/operations';
@@ -11,7 +12,7 @@ export const RegisterForm = () => {
   const [password, setPassword] = useState('');
 
   const handleChange = (event) => {
-    const { name, value } = event.currentTarget;
+    const { name, value } = event.target;
     
     switch (name) {
       case 'name':
@@ -72,7 +73,7 @@ export const RegisterForm = () => {
             required
             />
         </label>
-        <button type="submit" >Register</button>
+        <Button  type="submit" variant="primary">Register</Button>
         </form>
     </div>
   )

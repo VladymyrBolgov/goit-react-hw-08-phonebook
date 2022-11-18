@@ -4,7 +4,10 @@ import {
   ContactListBtn,
   ContactListText,
 } from './ContactList.styled';
-import { selectContactsByName, selectLoadingStatus } from 'redux/selectors';
+import {
+  selectContactsByName,
+  selectLoadingStatus
+} from 'redux/selectors';
 import { deleteContact, fetchContacts } from 'redux/operations';
 import { useSelector, useDispatch } from 'react-redux';
 import Loader from 'components/Loader'
@@ -25,7 +28,6 @@ const ContactList = () => {
       {contacts.length === 0 ? (
         <h2>Phonebook is empty</h2>
       ) : (
-
         <ContactListBox>
           {isLoading && <Loader />}
           {contacts.map(({ id, name, number }) => (

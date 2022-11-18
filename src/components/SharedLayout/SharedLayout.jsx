@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { Header, Navigation } from "./SharedLayout.styled";
 import UserMenu from 'components/UserMenu';
-import AuthNavigation from "components/AuthNaviration.jsx";
+import AuthNavigation from "components/AuthNavigation";
 
 
 const SharedLayout = () => {
