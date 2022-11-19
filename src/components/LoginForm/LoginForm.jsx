@@ -1,17 +1,28 @@
-import {  useState } from 'react'
-import { useDispatch } from 'react-redux';
+import {  useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 //import userAuthOperations from 'redux/Auth/operations';
 import css from './LoginForm.module.css'
 import { logIn } from 'redux/Auth/operations';
+import { setAuthStatus } from 'redux/actions/contactsActions';
 //import { Button } from '@mui/material';
-
+import Notiflix from 'notiflix';
 
 export const LoginForm = () => {
+  const authStatus = useSelector(state => state.auth.authStatus);
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  useEffect(() => {
+    if (authStatus === 'LogError') {
+      Notiflix.Notify.failure('Error: incorrectly entered email or password');
+    }
+  }, [authStatus]);
 
+  useEffect(() => {
+    return () => dispatch(setAuthStatus());
+  }, [dispatch]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
