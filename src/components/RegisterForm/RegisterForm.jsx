@@ -22,7 +22,7 @@ export const RegisterForm = () => {
   }, [authStatus]);
 
   useEffect(() => {
-   return () => dispatch(setAuthStatus());
+  return () => dispatch(setAuthStatus());
   }, [dispatch]);
 
   const handleChange = (event) => {
